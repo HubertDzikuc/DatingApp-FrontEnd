@@ -12,12 +12,14 @@ import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
-import { MemberListComponent } from './member-list/member-list.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
+import { AlertifyService } from './_services/alertify.service';
+import { MemberCardComponent } from './members/member-card/member-card.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { UserService } from './_services/user.service';
     MemberListComponent,
     ListsComponent,
     MessagesComponent,
+    MemberCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { UserService } from './_services/user.service';
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [AuthService, ErrorInterceptorProvider],
+  providers: [AuthService, ErrorInterceptorProvider, AlertifyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
